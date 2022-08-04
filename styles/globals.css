@@ -1,26 +1,46 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  .errorInput {
+    @apply placeholder:italic placeholder:text-red-400 text-red-400;
   }
   body {
-    color: white;
-    background: black;
+    @apply bg-slate-50 subpixel-antialiased;
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  #__next {
+    @apply w-full min-h-screen grid grid-rows-[auto_1fr_auto];
+  }
+  *,
+  *::after,
+  *::before {
+    @apply box-border;
+  }
+  button {
+    @apply select-none;
+  }
+  .bar {
+    @apply bg-sky-500 fixed top-0 left-0 z-50 w-full h-1;
+  }
+
+  /* Fancy blur effect */
+  .peg {
+    @apply block absolute right-0 h-full w-24 shadow-md shadow-sky-500 rotate-3 translate-y-[-.25rem];
   }
 }

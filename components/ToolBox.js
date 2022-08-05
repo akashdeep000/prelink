@@ -62,7 +62,7 @@ export default function ToolBox({ props }) {
   return (
     <>
       <div className="grid place-items-center w-full">
-        <div className="w-[85%] mt-3 relative">
+        <div className="w-[85%] md:w-[80%] lg-w-[76%]  mt-3 relative">
           <input
             ref={inputRef}
             onChange={handleUrlChange}

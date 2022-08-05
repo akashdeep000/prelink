@@ -3,6 +3,7 @@ import Default from "./Default";
 import Facebook from "./Facebook";
 import Twitter from "./Twitter";
 
+
 export default function Moderm({ props }) {
   const [activeBtn, setActiveBtn] = useState("default");
 
@@ -22,7 +23,7 @@ export default function Moderm({ props }) {
               activeBtn === "default" ? "!bg-indigo-500 !text-white" : ""
             } rounded cursor-pointer`}
           >
-            Demo
+            Custom
           </button>
           <button
             onClick={() => setActiveBtn("facebook")}

@@ -1,6 +1,6 @@
 # 🖇️PreLink
 
-🔗[prelink.vercel.app](https://prelink-demo.vercel.app)
+🔗[prelink-demo.vercel.app](https://prelink-demo.vercel.app)
 
 A tool website build with [`NextJs`](https://nextjs.org) where you just put `url` of any site and it will show you `Link Preview` of this site on social media sites.
 And also all `Metadata` by scraping.

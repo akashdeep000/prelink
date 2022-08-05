@@ -10,7 +10,7 @@ export default function Header() {
           </div>
         </Link>
 
-        <Link href="https://github.com/AkashDeep000/link-previewer">
+        <Link href="https://github.com/AkashDeep000/prelink">
           <button className="text-purple-500 px-2 font-bold ">Github</button>
         </Link>
         <Link href="/api-info">

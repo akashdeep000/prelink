@@ -11,7 +11,11 @@ export default async (urlInput) => {
   }${urlInput}`;
   const urlJson = new URL(url);
   try {
-    const res = await axios.get(url);
+    const res = await axios.get(url, {
+      headers: {
+        "User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+      }
+    });
     const html = res.data;
     //console.log(html);
     const $ = cheerio.load(html);

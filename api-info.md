@@ -7,7 +7,7 @@ https://prelink-demo.vercel.app/api?url=:url
 ## Javascript example
 
 ```js
-const apiPmUrl = "https://prelink-demo.vercel.app/api";
+const apiUrl = "https://prelink-demo.vercel.app/api";
 const url = "https://example.com";
 
 const result = await fetch(`${apiUrl}?url=${url}`).json;

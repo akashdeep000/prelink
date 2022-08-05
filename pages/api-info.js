@@ -16,7 +16,7 @@ export default function ApiInfo({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div className="grid justify-center mt-4 p-3">
+      <div className="w-full grid justify-center mt-4 p-5">
         <div className="prose overflow-x-auto">
           <ReactMarkdown children={data.md} />
         </div>
@@ -30,7 +30,6 @@ export async function getStaticProps(context) {
   const markdown = await fsAsync.readFile("api-info.md", "utf8");
   // console.log(markdown);
   return {
-    props: { data: {md: markdown }}
-  }
+    props: { data: { md: markdown } },
+  };
 }
-

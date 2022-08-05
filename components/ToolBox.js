@@ -2,13 +2,16 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import isValidUrl from "util/isValidUrl";
 import Result from "./Result";
+
 export default function ToolBox({ props }) {
   const [url, setUrl] = useState("");
   const [isInputError, setIsInputError] = useState(false);
   const [isShowErrorText, setIsShowErrorText] = useState(false);
+
   const [result, setResult] = useState();
   const inputRef = useRef();
   const [reqState, setReqState] = useState();
+
   const handleUrlChange = async (e) => {
     setUrl(e.target.value);
     setIsShowErrorText(false);
@@ -47,15 +50,15 @@ export default function ToolBox({ props }) {
       console.log("req");
       setIsShowErrorText(false);
       setReqState("wait");
-      const res = await axios.get(`/api?url=${url}`);
-      const data = res.data;
-      console.log(data);
-      setResult(data);
+      const reUrl = `/api?url=${url}`;
+      const res = await axios.get(reUrl);
+      //console.log(res.data);
+      setResult(res.data);
       setReqState("success");
     } catch (e) {
       setIsShowErrorText(true);
       setReqState("failed");
-      console.log(e.response?.data?.massage);
+      console.log(e.response?.data?.massage || e);
     }
   };
 
@@ -94,7 +97,9 @@ export default function ToolBox({ props }) {
               ? "Some error happened. Please try again."
               : "Not a valid url!"}
           </p>
+       
         </div>
+
         {reqState === "wait" ? (
           <button
             type="button"

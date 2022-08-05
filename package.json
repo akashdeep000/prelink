@@ -15,8 +15,7 @@
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.3",
-    "remark-gfm": "^3.0.1"
+    "react-markdown": "^8.0.3"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.0",

@@ -77,10 +77,11 @@ export default function ToolBox({ props }) {
           <button
             onClick={handleButtonClick}
             className={`absolute right-1.5 top-1.5 bg-gradient-to-r ${
-              reqState == "wait"
-                ? "to-indigo-300 from-purple-300"
+              reqState === "wait"
+                ? "to-indigo-400 from-purple-400"
                 : "to-indigo-500 from-purple-500"
             } text-white px-3 py-2.5 font-bold rounded`}
+            disabled={reqState === "wait"}
           >
             Submit
           </button>

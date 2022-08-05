@@ -1,9 +1,8 @@
 import { useState } from "react";
 export default function Facebook ({props}) {
-  const title = props?.ogTitle ? props.ogTitle : props?.title;
-  const description = props?.ogDescription
-    ? props?.ogDescription
-    : props?.description;
+  const title = props?.ogTitle || props?.twitterTitle || props?.Title;
+
+  const description = props?.ogDescription || props?.twitterDescription;
 
   return (
     <>

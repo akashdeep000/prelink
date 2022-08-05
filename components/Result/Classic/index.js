@@ -5,7 +5,7 @@ import { JsonArray, download } from "json-to-csv-in-browser";
 
 export default function Classic ({props}) {
   const data = [];
-  const extraKeys = ["domain", "favicon", "title"];
+  const extraKeys = ["domain", "favicon", "title, keywords"];
   extraKeys.forEach((e) => {
     if (!props[e]) {
       return;
@@ -17,7 +17,7 @@ export default function Classic ({props}) {
     if (!props[fieldName]) {
       return;
     }
-    data.push({ key: e.property, value: props[fieldName] });
+    data.push({ key: e.property, value: props[fieldName], multiple: e.multiple});
   });
 
   const handleCsvDownload = async () => {

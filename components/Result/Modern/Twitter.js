@@ -1,10 +1,16 @@
 import { useState } from "react";
 
 export default function Twiter({ props }) {
-  const title = props?.twitterTitle;
-  const description = props?.twitterDescription;
+  const title = props?.twitterTitle || props?.ogTitle || props?.Title;
+
+  const description = props?.twitterDescription || props?.ogDescription;
+
   const imageUrl = props?.twitterImage?.length
     ? props?.twitterImage[0]
+    : props?.twitterImageSrc?.length
+    ? props?.twitterImageSrc[0]
+    : props?.ogImage
+    ? props?.ogImage
     : undefined;
 
   const isFull = props?.twitterCard == "summary_large_image";
@@ -56,7 +62,7 @@ export default function Twiter({ props }) {
         </div>
       ) : (
         <p className="text-center mt-5 text-slate-00">
-          This website doesn&apost have a Twiter Card
+          This website doesn&#39;t have a Twiter Card
         </p>
       )}
     </>

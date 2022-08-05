@@ -1,9 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 export default function Default({ props }) {
-  const title = props?.ogTitle ? props.ogTitle : props?.title;
-  const description = props?.ogDescription
-    ? props?.ogDescription
-    : props?.description;
+  const title = props?.ogTitle || props?.twitterTitle || props?.Title;
+
+  const description =  props?.ogDescription || props?.twitterDescription
 
   const [favicon, setFavicon] = useState();
   const errorFavicon = "/errorFavicon.ico";

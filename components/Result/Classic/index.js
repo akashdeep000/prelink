@@ -1,23 +1,33 @@
-import { useState } from "react";
+
 import SingleRow from "./SingleRow";
 import ogFields from "util/ogFields";
 import { JsonArray, download } from "json-to-csv-in-browser";
-
-export default function Classic ({props}) {
+import { uid } from "uid";
+export default function Classic({ props }) {
   const data = [];
-  const extraKeys = ["domain", "favicon", "title, keywords"];
-  extraKeys.forEach((e) => {
+  const extraFields = ["domain", "favicon", "title, keywords"];
+  extraFields.forEach((e) => {
     if (!props[e]) {
       return;
     }
-    data.push({ key: e, value: props[e] });
+    data.push({
+      id: uid(),
+      fieldName: e,
+      value: props[e],
+      multiple: false,
+    });
   });
   ogFields.forEach((e) => {
     const fieldName = e.fieldName;
     if (!props[fieldName]) {
       return;
     }
-    data.push({ key: e.property, value: props[fieldName], multiple: e.multiple});
+    data.push({
+      id: uid(),
+      fieldName: e.property,
+      value: props[fieldName],
+      multiple: e.multiple,
+    });
   });
 
   const handleCsvDownload = async () => {
@@ -48,7 +58,7 @@ export default function Classic ({props}) {
             console.log(e);
             return (
               <>
-                <SingleRow props={e} />
+                <SingleRow key={e.id} props={e} />
                 {data?.length !== i + 1 ? <hr /> : null}
               </>
             );
@@ -57,4 +67,4 @@ export default function Classic ({props}) {
       </div>
     </>
   );
-};
+}

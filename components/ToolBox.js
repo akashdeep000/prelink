@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import isValidUrl from "util/isValidUrl";
 import Result from "./Result";
+import { useRouter } from "next/router";
 
 export default function ToolBox({ props }) {
+  const router = useRouter();
   const [url, setUrl] = useState("");
   const [isInputError, setIsInputError] = useState(false);
   const [isShowErrorText, setIsShowErrorText] = useState(false);
@@ -11,6 +13,23 @@ export default function ToolBox({ props }) {
   const [result, setResult] = useState();
   const inputRef = useRef();
   const [reqState, setReqState] = useState();
+
+  useEffect(() => {
+    if (!router.isReady) return;
+    const queryUrl = router.query?.url;
+    if (queryUrl !== url) {
+      setUrl(queryUrl);
+      if (isValidUrl(queryUrl)) handleReq(queryUrl);
+    }
+  }, [router.isReady, router.query]);
+
+  useEffect(() => {
+    if (!router.isReady) return;
+    const queryUrl = router.query?.url;
+    navigator.clipboard.readText().then((clipText) => {
+      if (isValidUrl(clipText) && !queryUrl) setUrl(clipText);
+    });
+  }, [router.isReady]);
 
   const handleUrlChange = async (e) => {
     setUrl(e.target.value);
@@ -36,7 +55,8 @@ export default function ToolBox({ props }) {
     }
   };
 
-  const handleButtonClick = async () => {
+  const handleReq = async (url) => {
+    const uri = `/?url=${url}`;
     if (reqState === "wait") {
       return;
     }
@@ -60,6 +80,14 @@ export default function ToolBox({ props }) {
       setReqState("failed");
       console.log(e.response?.data?.massage || e);
     }
+  };
+
+  const handleButtonClick = async () => {
+    if (router.query?.url != url) {
+      const uri = `/?url=${url}`;
+      router.push(uri, undefined, { shallow: true });
+    }
+    handleReq(url);
   };
 
   return (
@@ -97,7 +125,6 @@ export default function ToolBox({ props }) {
               ? "Some error happened. Please try again."
               : "Not a valid url!"}
           </p>
-       
         </div>
 
         {reqState === "wait" ? (

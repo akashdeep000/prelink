@@ -13,14 +13,19 @@ export default async (urlInput) => {
   try {
     const res = await axios.get(url, {
       headers: {
-        "User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
-      }
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36",
+      },
     });
+    const responseUrl = res.request.res.responseUrl;
     const html = res.data;
     //console.log(html);
     const $ = cheerio.load(html);
 
     const ogMetadata = {};
+    //set domain name
+    const responseUrlJson = new URL(responseUrl);
+    ogMetadata["domain"] = responseUrlJson.hostname;
 
     //extract title
     const title = $("title").text();
@@ -30,23 +35,22 @@ export default async (urlInput) => {
     $("link").each((index, link) => {
       //console.log(link.attribs);
       if (link.attribs.rel == "icon" || link.attribs.rel == "shortcut icon") {
-        //this is hacky code whene debuging google map url
+        //this is hacky code when debuging google map url
         let favicon = link.attribs.href.startsWith("//")
           ? link.attribs.href.substring(2)
           : link.attribs.href;
+          
         if (!isValidUrl(favicon)) {
-          favicon = `${urlJson.origin}${favicon}`;
+          favicon = `${responseUrlJson.origin}${favicon}`;
         }
         ogMetadata["favicon"] = favicon;
       }
     });
     /*
     if (!ogMetadata.favicon) {
-      ogMetadata["favicon"] = `${urlJson.origin}/favicon.ico`;
+      ogMetadata["favicon"] = `${responseUrl}/favicon.ico`;
     }
     */
-    //set domain name
-    ogMetadata["domain"] = urlJson.hostname;
 
     //get meta tags
     $("meta").each((index, meta) => {

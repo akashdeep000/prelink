@@ -18,7 +18,9 @@ export default function ApiInfo({ data }) {
       <Header />
       <div className="w-full grid justify-center mt-4 p-5">
         <div className="prose overflow-x-auto">
-          <ReactMarkdown children={data.md} />
+          <ReactMarkdown>
+          {data.md}
+          </ReactMarkdown>
         </div>
       </div>
       <Footer />

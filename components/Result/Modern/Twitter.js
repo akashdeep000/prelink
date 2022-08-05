@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export default function Twiter({ props }) {
-  const title = props?.twitterTitle || props?.ogTitle || props?.Title;
+  const title = props?.twitterTitle || props?.ogTitle || props?.title;
 
-  const description = props?.twitterDescription || props?.ogDescription;
+  const description = props?.twitterDescription || props?.ogDescription || props?.description
 
   const imageUrl = props?.twitterImage?.length
     ? props?.twitterImage[0]

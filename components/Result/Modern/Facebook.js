@@ -1,8 +1,8 @@
 import { useState } from "react";
-export default function Facebook ({props}) {
-  const title = props?.ogTitle || props?.twitterTitle || props?.Title;
+export default function Facebook({ props }) {
+  const title = props?.ogTitle || props?.twitterTitle || props?.title;
 
-  const description = props?.ogDescription || props?.twitterDescription;
+  const description = props?.ogDescription || props?.twitterDescription || props?.description
 
   return (
     <>
@@ -37,4 +37,4 @@ export default function Facebook ({props}) {
       <br />
     </>
   );
-};
+}

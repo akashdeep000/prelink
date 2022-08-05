@@ -18,15 +18,21 @@ export default async (urlInput) => {
       },
     });
     const responseUrl = res.request.res.responseUrl;
+    const responseUrlJson = new URL(responseUrl);
     const html = res.data;
     //console.log(html);
     const $ = cheerio.load(html);
 
     const ogMetadata = {};
     //set domain name
-    const responseUrlJson = new URL(responseUrl);
-    ogMetadata["domain"] = responseUrlJson.hostname;
-
+    ogMetadata["domain"] = urlJson.hostname;
+  //set redirected domain
+  if (responseUrlJson.hostname !== urlJson.hostname) {
+    ogMetadata["redirectedDomain"] = responseUrlJson.hostname;
+  }
+  //set protocol
+  ogMetadata["protocol"] = responseUrlJson.protocol;
+  //
     //extract title
     const title = $("title").text();
     ogMetadata["title"] = title;

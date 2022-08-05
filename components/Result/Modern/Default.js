@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 export default function Default({ props }) {
-  const title = props?.ogTitle || props?.twitterTitle || props?.Title;
+  const title = props?.ogTitle || props?.twitterTitle || props?.title;
 
-  const description =  props?.ogDescription || props?.twitterDescription
+  const description = props?.ogDescription || props?.twitterDescription || props?.description
 
   const [favicon, setFavicon] = useState();
   const errorFavicon = "/errorFavicon.ico";
@@ -12,7 +12,7 @@ export default function Default({ props }) {
         ? props?.ogLogo
         : props?.favicon
         ? props.favicon
-        : `http://${props?.domain}/favicon.ico`
+        : `${props.protocol}//${props?.redirectedDomain}/favicon.ico`
     );
   }, [props?.favicon]);
 
@@ -54,4 +54,4 @@ export default function Default({ props }) {
       <br />
     </>
   );
-};
+}

@@ -1,19 +1,40 @@
-
 import SingleRow from "./SingleRow";
 import ogFields from "util/ogFields";
 import { JsonArray, download } from "json-to-csv-in-browser";
 import { uid } from "uid";
 export default function Classic({ props }) {
   const data = [];
-  const extraFields = ["domain", "favicon", "title, keywords"];
+  const extraFields = [
+    {
+      fieldName: "domain",
+      property: "domain",
+    },
+    {
+      fieldName: "favicon",
+      property: "favicon",
+    },
+    {
+      fieldName: "redirectedDomain",
+      property: "redirected domain",
+    },
+    {
+      fieldName: "title",
+      property: "title",
+    },
+    {
+      fieldName: "keywords",
+      property: "keywords",
+    },
+  ];
   extraFields.forEach((e) => {
-    if (!props[e]) {
+    if (!props[e.fieldName]) {
       return;
     }
+    console.log("in");
     data.push({
       id: uid(),
-      fieldName: e,
-      value: props[e],
+      fieldName: e.property,
+      value: props[e.fieldName],
       multiple: false,
     });
   });
@@ -29,7 +50,7 @@ export default function Classic({ props }) {
       multiple: e.multiple,
     });
   });
-
+  console.log(data);
   const handleCsvDownload = async () => {
     let jsonArray = new JsonArray(data);
     let str = jsonArray.convertToCSVstring();

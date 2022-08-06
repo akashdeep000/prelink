@@ -16,6 +16,11 @@ And also all `Metadata` by scraping.
   - OpenGraph
   - Twitter Card
 
+## 👨‍💻 Tech Used
+
+- **NextJs**
+- **Tailwindcss**
+
 ## ▶️ Start Dev Server
 
 First, run the development server:

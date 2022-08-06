@@ -52,7 +52,14 @@ export default function Classic({ props }) {
   });
   console.log(data);
   const handleCsvDownload = async () => {
-    let jsonArray = new JsonArray(data);
+    const csvData = data.map(o => {
+      let obj = Object.assign({}, o);
+      delete obj.id;
+      delete obj.multiple
+      return obj;
+    });
+
+    let jsonArray = new JsonArray(csvData);
     let str = jsonArray.convertToCSVstring();
     download("my.csv", str);
   };

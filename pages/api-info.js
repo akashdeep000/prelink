@@ -11,19 +11,17 @@ export default function ApiInfo({ data }) {
   return (
     <>
       <Head>
-        <title>PreLink - Link Previewer</title>
+        <title>PreLink - API documentation</title>
         <meta
           name="description"
-          content="Get link preview of any url for different social media platform with all metadata."
+          content="Documentation for API of PreLink website to get the metadata from urls."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <div className="w-full grid justify-center mt-4 p-5">
         <div className="prose overflow-x-auto">
-          <ReactMarkdown>
-          {data.md}
-          </ReactMarkdown>
+          <ReactMarkdown>{data.md}</ReactMarkdown>
         </div>
       </div>
       <Footer />

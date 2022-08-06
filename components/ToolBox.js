@@ -17,9 +17,11 @@ export default function ToolBox({ props }) {
   useEffect(() => {
     if (!router.isReady) return;
     const queryUrl = router.query?.url;
-    if (queryUrl !== url) {
+    if (queryUrl && queryUrl !== url) {
       setUrl(queryUrl);
       if (isValidUrl(queryUrl)) handleReq(queryUrl);
+    } else {
+      setResult();
     }
   }, [router.isReady, router.query]);
 
@@ -150,7 +152,7 @@ export default function ToolBox({ props }) {
             Processing...
           </button>
         ) : null}
-        {reqState === "success" ? <Result props={result} /> : null}
+        {reqState === "success" && result ? <Result props={result} /> : null}
       </div>
     </>
   );

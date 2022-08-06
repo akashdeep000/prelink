@@ -35,6 +35,11 @@
   button {
     @apply select-none;
   }
+  .x-scroll {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    white-space: nowrap;
+  }
   .bar {
     @apply bg-sky-500 fixed top-0 left-0 z-50 w-full h-1;
   }

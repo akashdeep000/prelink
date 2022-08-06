@@ -2,20 +2,20 @@ import { useRef, useState, useEffect } from "react";
 export default function Default({ props }) {
   const title = props?.ogTitle || props?.twitterTitle || props?.title;
 
-  const description = props?.ogDescription || props?.twitterDescription || props?.description
+  const description =
+    props?.ogDescription || props?.twitterDescription || props?.description;
 
   const [favicon, setFavicon] = useState();
   const errorFavicon = "/errorFavicon.ico";
   useEffect(() => {
     setFavicon(
-      props?.ogLogo
-        ? props?.ogLogo
-        : props?.favicon
-        ? props.favicon
-        : `${props.protocol}//${props?.redirectedDomain}/favicon.ico`
+      props?.ogLogo ||
+        props?.favicon ||
+        `${props.protocol}//${
+          props?.redirectedDomain || props?.domain
+        }/favicon.ico`
     );
   }, [props?.favicon]);
-
   return (
     <>
       <div className="w-full mt-2 bg-white grid place-items-center rounded border shadow-[0_0_.4rem_rgba(0,25,49,0.1)] text-sm">

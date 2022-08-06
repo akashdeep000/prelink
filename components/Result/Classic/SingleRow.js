@@ -30,7 +30,7 @@ export default function SingleRow({ props }) {
         ) : (
           <>
             {isValidUrl(props?.value) ? (
-              <a className="line-clamp-2 text-indigo-500" href={props.value}>
+              <a className="line-clamp-2 text-indigo-500" href={"http://" + props.value}>
                 {props.value}
               </a>
             ) : (

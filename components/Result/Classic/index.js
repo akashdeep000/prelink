@@ -30,7 +30,8 @@ export default function Classic({ props }) {
     if (!props[e.fieldName]) {
       return;
     }
-    console.log("in");
+   // console.log("in");
+    
     data.push({
       id: uid(),
       fieldName: e.property,
@@ -86,7 +87,7 @@ export default function Classic({ props }) {
             console.log(e);
             return (
               <>
-                <SingleRow key={e.id} props={e} />
+                <SingleRow key={e.id} props={e}/>
                 {data?.length !== i + 1 ? <hr /> : null}
               </>
             );

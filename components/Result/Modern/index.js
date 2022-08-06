@@ -16,7 +16,7 @@ export default function Moderm({ props }) {
           </div>
           <div className="bg-gradient-to-l from-purple-500 to-pink-500 h-1.5 w-auto"></div>
         </div>
-        <div className="w-full mt-3 text-indigo-600 bg-indigo-100 p-1 rounded grid grid-flow-col">
+        <div className="w-full mt-3 text-indigo-600 bg-indigo-100 p-1 rounded grid grid-flow-col gap-1">
           <button
             onClick={() => setActiveBtn("default")}
             className={`px-1 py-1.5 hover:bg-indigo-200 ${

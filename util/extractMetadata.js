@@ -26,10 +26,10 @@ export default async (urlInput) => {
     const ogMetadata = {};
     //set domain name
     ogMetadata["domain"] = urlJson.hostname;
-  //set redirected domain
-  if (responseUrlJson.hostname !== urlJson.hostname) {
-    ogMetadata["redirectedDomain"] = responseUrlJson.hostname;
-  }
+   //set redirected domain
+    if (responseUrlJson.hostname !== urlJson.hostname) {
+        ogMetadata["redirectedDomain"] = responseUrlJson.hostname;
+      }
   //set protocol
   ogMetadata["protocol"] = responseUrlJson.protocol;
   //

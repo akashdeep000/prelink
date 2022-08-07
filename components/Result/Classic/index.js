@@ -21,11 +21,7 @@ export default function Classic({ props }) {
       fieldName: "title",
       property: "title",
     },
-    {
-      fieldName: "keywords",
-      property: "keywords",
-    },
-  ];
+]
   extraFields.forEach((e) => {
     if (!props[e.fieldName]) {
       return;

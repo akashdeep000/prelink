@@ -6,7 +6,7 @@ module.exports = [
     fieldName: "description",
   },
     {
-    multiple: false,
+    multiple: true,
     property: "keywords",
     fieldName: "keywords",
   },

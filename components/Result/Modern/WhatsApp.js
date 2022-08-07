@@ -10,7 +10,7 @@ export default function WhatsApp({ props }) {
       <div className="w-full mt-2 rounded-xl p-1 bg-[rgb(230,253,222)] shadow-[0_0_.6rem_rgba(0,25,49,0.1)]">
         <div className="w-full bg-[rgb(216,244,205)] rounded-lg">
           {props?.ogImage ? (
-            <img src={props.ogImage} className="rounded-t-lg" />
+            <img src={props.ogImage} className="rounded-t-lg aspect-video object-cover" />
           ) : null}
           <div className="p-2">
             {title ? (

@@ -22,7 +22,7 @@ export default function Default({ props }) {
         {props?.ogImage ? (
           <img
             src={props.ogImage}
-            className="rounded-t w-[calc(100%_-_.5rem)] mx-1 mt-1"
+            className="rounded-t w-[calc(100%_-_.5rem)] mx-1 mt-1 aspect-video object-cover"
           />
         ) : null}
 

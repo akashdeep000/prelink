@@ -2,7 +2,7 @@
 
 Here is the simple way to call the api described bellow:
 
-Just send a GET request on this like this -
+Just send a GET request on our API endpoint like this -
 
 ```js
 https://prelink-demo.vercel.app/api?url=:url
@@ -15,4 +15,5 @@ const apiUrl = "https://prelink-demo.vercel.app/api";
 const url = "https://example.com";
 
 const result = await fetch(`${apiUrl}?url=${url}`).json;
+console.log(result)
 ```

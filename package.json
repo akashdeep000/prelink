@@ -13,6 +13,7 @@
     "cheerio": "^1.0.0-rc.12",
     "json-to-csv-in-browser": "^1.0.5",
     "next": "12.2.3",
+    "nextjs-progressbar": "^0.0.14",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.3",

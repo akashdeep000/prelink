@@ -15,10 +15,11 @@ const apiUrl = "https://prelink-demo.vercel.app/api";
 const url = "https://example.com";
 
 const result = await fetch(`${apiUrl}?url=${url}`).json;
-console.log(result)
+console.log(result);
 ```
 
 ### Example Response
+
 ```json
 {
   "domain": "findcoder.io",
@@ -30,9 +31,7 @@ console.log(result)
   "ogTitle": "FindCoder | Welcome",
   "ogDescription": "A central location to find coders. Collab or hire coders with no middleman. An open platform to hire coders based on skills and projects. Showcase your work! Participate in challenges and win exciting prizes and goodies. Improve your portfolio and get interview ready with real world knowledge.",
   "ogUrl": "https://findcoder.io/",
-  "ogImage": [
-    "https://findcoder.io/logos/fc_logo.png"
-  ],
+  "ogImage": ["https://findcoder.io/logos/fc_logo.png"],
   "ogType": "website",
   "ogSiteName": "FindCoder.io",
   "twitterCard": "summary_large_image",
@@ -40,12 +39,8 @@ console.log(result)
   "twitterCreator": "@FindCoder",
   "twitterDescription": "A central location to find coders. Collab or hire coders with no middleman. An open platform to hire coders based on skills and projects. Showcase your work! Participate in challenges and win exciting prizes and goodies. Improve your portfolio and get interview ready with real world knowledge.",
   "twitterTitle": "FindCoder | Welcome",
-  "twitterImage": [
-    "https://findcoder.io/logos/fc_logo.png"
-  ],
-  "twitterImageSrc": [
-    "https://findcoder.io/logos/fc_logo.png"
-  ],
+  "twitterImage": ["https://findcoder.io/logos/fc_logo.png"],
+  "twitterImageSrc": ["https://findcoder.io/logos/fc_logo.png"],
   "keywords": [
     "FindCoder, coders, programmers, software devs, software developers, hire coders, hire coders online, hire coders all over the worldundefined"
   ],

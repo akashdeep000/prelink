@@ -27,8 +27,8 @@ export default function ToolBox({ props }) {
 
   useEffect(() => {
     if (!router.isReady) return;
-    const queryUrl = router.query?.url;
-    navigator.clipboard.readText().then((clipText) => {
+    navigator?.clipboard?.readText().then((clipText) => {
+      const queryUrl = router.query?.url;
       if (isValidUrl(clipText) && !queryUrl) setUrl(clipText);
     });
   }, [router.isReady]);
@@ -69,7 +69,7 @@ export default function ToolBox({ props }) {
       return;
     }
     try {
-      console.log("req");
+      //console.log("req");
       setIsShowErrorText(false);
       setReqState("wait");
       const reUrl = `/api?url=${url}`;

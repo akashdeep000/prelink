@@ -2,9 +2,13 @@
 
 Here is the simple way to call the api described bellow:
 
-https://prelink-demo.vercel.app/api?url=:url
+Just send a GET request on this like this -
 
-## Javascript example
+```js
+https://prelink-demo.vercel.app/api?url=:url
+```
+
+### Javascript example
 
 ```js
 const apiUrl = "https://prelink-demo.vercel.app/api";

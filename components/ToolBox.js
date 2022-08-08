@@ -27,10 +27,12 @@ export default function ToolBox({ props }) {
 
   useEffect(() => {
     if (!router.isReady) return;
-    navigator?.clipboard?.readText().then((clipText) => {
+    try {
+    navigator.clipboard.readText().then((clipText) => {
       const queryUrl = router.query?.url;
       if (isValidUrl(clipText) && !queryUrl) setUrl(clipText);
     });
+    } catch (e) {return}
   }, [router.isReady]);
 
   const handleUrlChange = async (e) => {

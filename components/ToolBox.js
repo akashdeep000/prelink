@@ -161,7 +161,7 @@ export default function ToolBox({ props }) {
           <div className="grid place-items-center">
             <img
               src="/preview.webp"
-              className="pl-10 py-5 w-full md:w-[80%] max-w-5xl"
+              className="pl-10 py-5 w-full md:w-[80%] lg-[70%]"
             />
           </div>
         ) : null}

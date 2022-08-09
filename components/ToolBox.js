@@ -28,11 +28,13 @@ export default function ToolBox({ props }) {
   useEffect(() => {
     if (!router.isReady) return;
     try {
-    navigator.clipboard.readText().then((clipText) => {
-      const queryUrl = router.query?.url;
-      if (isValidUrl(clipText) && !queryUrl) setUrl(clipText);
-    });
-    } catch (e) {return}
+      navigator.clipboard.readText().then((clipText) => {
+        const queryUrl = router.query?.url;
+        if (isValidUrl(clipText) && !queryUrl) setUrl(clipText);
+      });
+    } catch (e) {
+      return;
+    }
   }, [router.isReady]);
 
   const handleUrlChange = async (e) => {
@@ -155,6 +157,11 @@ export default function ToolBox({ props }) {
           </button>
         ) : null}
         {reqState === "success" && result ? <Result props={result} /> : null}
+        {!result && reqState !== "wait" ? (
+          <div className="grid place-items-center">
+            <img src="/preview.webp" className="pl-10 py-5 w-full md:w-[80%]" />
+          </div>
+        ) : null}
       </div>
     </>
   );

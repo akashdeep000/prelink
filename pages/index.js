@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Header from "components/Header";
 import ToolBox from "components/ToolBox";
 import Footer from "components/Footer";
@@ -9,7 +8,10 @@ export default function Home() {
     <>
       <Head>
         <title>PreLink - Link Previewer</title>
-        <meta name="description" content="Get link preview of any url for different social media platform with all metadata." />
+        <meta
+          name="description"
+          content="Get link preview of any url for different social media platform with all metadata."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />

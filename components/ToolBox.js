@@ -159,7 +159,10 @@ export default function ToolBox({ props }) {
         {reqState === "success" && result ? <Result props={result} /> : null}
         {!result && reqState !== "wait" ? (
           <div className="grid place-items-center">
-            <img src="/preview.webp" className="pl-10 py-5 w-full md:w-[80%] max-w-3xl" />
+            <img
+              src="/preview.webp"
+              className="pl-10 py-5 w-full md:w-[80%] max-w-5xl"
+            />
           </div>
         ) : null}
       </div>

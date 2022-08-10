@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "components/Header";
 import ToolBox from "components/ToolBox";
 import Footer from "components/Footer";
-
+import Features from "components/Features"
 export default function Home() {
   return (
     <>
@@ -31,6 +31,7 @@ export default function Home() {
           at one click
         </h2>
         <ToolBox />
+        <Features/>
       </div>
       <Footer />
     </>

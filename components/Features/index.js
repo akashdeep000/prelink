@@ -5,13 +5,13 @@ export default function Features() {
     {
       id: 1,
       title: "Multiple Preview",
-      description: "Get Preview of Link for Multiple Social Media.",
+      description: "Get Preview of Link for Multiple Social Media Platform (Facebook, Twitter, WhatsApp)",
     },
     {
       id: 2,
       title: "Auto Paste URL",
       description:
-        "Automatically Fill Up Url Field with Copied Link from Clipboard.",
+        "Automatically Fill Up Url Field with Copied Link from Clipboard When You Come To This Website or Reload.",
     },
     {
       id: 3,
@@ -23,7 +23,7 @@ export default function Features() {
       id: 4,
       title: "API for Developers",
       description:
-        "Developer Can Use Our Esy to Use API to Get Any URLs Metadata With a Single GET Request.",
+        "Developer Can Use Our Easy to Use API to Get Any URLs Metadata With a Single GET Request (See API Docs By Clicking Get API Button On Header Section).",
     },
     {
       id: 5,

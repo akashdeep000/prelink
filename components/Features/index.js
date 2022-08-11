@@ -18,7 +18,7 @@ export default function Features() {
       id: 3,
       title: "Glitch Free",
       description:
-        "You will rearly find any glitch when showing link preview for different platforms.",
+        "You will rarely find any glitch when showing link preview for different platforms.",
     },
     {
       id: 4,

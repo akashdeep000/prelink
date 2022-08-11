@@ -21,8 +21,13 @@ export default function ToolBox({ props }) {
     if (isValidUrl(queryUrl)) {
       handleReq(queryUrl);
     }
-    if (!url) {
-      setUrl(queryUrl);
+    try {
+      navigator.clipboard.readText().then((clipText) => {
+        //const queryUrl = router.query?.url;
+        if (!isValidUrl(clipText)) setUrl(queryUrl);
+      });
+    } catch (e) {
+      setUrl(queryUrl)
     }
   }, [router.isReady, router.query]);
 

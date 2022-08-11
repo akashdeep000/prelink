@@ -17,25 +17,21 @@ export default function ToolBox({ props }) {
   useEffect(() => {
     if (!router.isReady) return;
     const queryUrl = router.query?.url;
-    if (queryUrl && queryUrl !== url) {
-      setUrl(queryUrl);
-      if (isValidUrl(queryUrl)) handleReq(queryUrl);
-    } else {
-      setResult();
+    if (isValidUrl(queryUrl)) {
+      handleReq(queryUrl);
     }
   }, [router.isReady, router.query]);
 
   useEffect(() => {
-    if (!router.isReady) return;
     try {
       navigator.clipboard.readText().then((clipText) => {
-        const queryUrl = router.query?.url;
-        if (isValidUrl(clipText) && !queryUrl) setUrl(clipText);
+        //const queryUrl = router.query?.url;
+        if (isValidUrl(clipText)) setUrl(clipText);
       });
     } catch (e) {
       return;
     }
-  }, [router.isReady]);
+  }, [router.query]);
 
   const handleUrlChange = async (e) => {
     setUrl(e.target.value);
@@ -157,7 +153,6 @@ export default function ToolBox({ props }) {
           </button>
         ) : null}
         {reqState === "success" && result ? <Result props={result} /> : null}
-  
       </div>
     </>
   );

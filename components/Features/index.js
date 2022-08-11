@@ -5,36 +5,37 @@ export default function Features() {
     {
       id: 1,
       title: "Multiple Preview",
-      description: "Get Preview of Link for Multiple Social Media Platform (Facebook, Twitter, WhatsApp)",
+      description:
+        "Get preview of link for multiple social media platform (facebook, twitter, whatsapp).",
     },
     {
       id: 2,
       title: "Auto Paste URL",
       description:
-        "Automatically Fill Up Url Field with Copied Link from Clipboard When You Come To This Website or Reload.",
+        "Automatically fill up url field with copied link from clipboard when you come to this website or reload.",
     },
     {
       id: 3,
       title: "Glitch Free",
       description:
-        "You Will Rearly Find Any Glitch When Showing Link Preview For Different Platforms.",
+        "You will rearly find any glitch when showing link preview for different platforms.",
     },
     {
       id: 4,
       title: "API for Developers",
       description:
-        "Developer Can Use Our Easy to Use API to Get Any URLs Metadata With a Single GET Request (See API Docs By Clicking Get API Button On Header Section).",
+        "Developer can use our easy to use api to get any urls metadata with a single GET request (see api docs by clicking get api button on header section).",
     },
     {
       id: 5,
       title: "Download Metadata",
-      description: "You Can Easily Download Websites Metadata as A CSV File.",
+      description: "You can easily download websites metadata as a CSV file.",
     },
     {
       id: 6,
       title: "Sharable Link",
       description:
-        "You Can Share Link After You Fetch The Website's Link-Preview And Recipient Can See It Opening The Link.",
+        "You can share link after you fetch the website's link-preview and recipient can see the same preview opening the link.",
     },
   ];
   return (

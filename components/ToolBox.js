@@ -16,13 +16,18 @@ export default function ToolBox({ props }) {
 
   useEffect(() => {
     if (!router.isReady) return;
+    setResult()
     const queryUrl = router.query?.url;
     if (isValidUrl(queryUrl)) {
       handleReq(queryUrl);
     }
+    if (!url) {
+      setUrl(queryUrl);
+    }
   }, [router.isReady, router.query]);
 
   useEffect(() => {
+    const queryUrl = router.query?.url;
     try {
       navigator.clipboard.readText().then((clipText) => {
         //const queryUrl = router.query?.url;

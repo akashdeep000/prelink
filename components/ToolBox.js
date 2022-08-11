@@ -16,7 +16,7 @@ export default function ToolBox({ props }) {
 
   useEffect(() => {
     if (!router.isReady) return;
-    setResult()
+    setResult();
     const queryUrl = router.query?.url;
     if (isValidUrl(queryUrl)) {
       handleReq(queryUrl);
@@ -36,7 +36,7 @@ export default function ToolBox({ props }) {
     } catch (e) {
       return;
     }
-  }, [router.query]);
+  }, []);
 
   const handleUrlChange = async (e) => {
     setUrl(e.target.value);

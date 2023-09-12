@@ -14,7 +14,8 @@ https://prelink-demo.vercel.app/api?url=:url
 const apiUrl = "https://prelink-demo.vercel.app/api";
 const url = "https://example.com";
 
-const result = await fetch(`${apiUrl}?url=${url}`).json;
+const res = await fetch(`${apiUrl}?url=${url}`);
+const result = await res.json()
 console.log(result);
 ```
 
@@ -42,7 +43,7 @@ console.log(result);
   "twitterImage": ["https://findcoder.io/logos/fc_logo.png"],
   "twitterImageSrc": ["https://findcoder.io/logos/fc_logo.png"],
   "keywords": [
-    "FindCoder, coders, programmers, software devs, software developers, hire coders, hire coders online, hire coders all over the worldundefined"
+    "FindCoder, coders, programmers, software devs, software developers, hire coders, hire coders online, hire coders all over the world"
   ],
   "author": "FindCoder"
 }
